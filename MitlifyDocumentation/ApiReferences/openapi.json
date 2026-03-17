@@ -1,0 +1,80 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Helpdesk AI API",
+    "description": "API documentation for the Helpdesk AI system",
+    "contact": {
+      "email": "mohammed.khadeeruddin@ctlup.com"
+    },
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8054",
+      "description": "Dev server"
+    },
+    {
+      "url": "http://localhost:8053",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Helpdesk AI Endpoints",
+      "description": "Endpoints for AI interactions in the Helpdesk system"
+    },
+    {
+      "name": "Helpdesk AI Controller",
+      "description": "Endpoints for AI interactions in the Helpdesk system"
+    }
+  ],
+  "paths": {
+    "/api/v1/helpdesk": {
+      "post": {
+        "tags": [
+          "Helpdesk AI Endpoints"
+        ],
+        "summary": "Generate response",
+        "operationId": "generate-response",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserQueryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "UserQueryRequest": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    }
+  }
+}
