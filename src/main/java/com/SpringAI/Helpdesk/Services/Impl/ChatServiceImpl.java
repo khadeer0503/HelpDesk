@@ -1,6 +1,7 @@
 package com.SpringAI.Helpdesk.Services.Impl;
 
 import com.SpringAI.Helpdesk.Services.ChatService;
+import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.core.io.Resource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,7 +19,7 @@ public class ChatServiceImpl implements ChatService {
     @Value("classpath:/helpdesk-system.st")
     private Resource systemPromptResource;
 
-    @Override
+   @Override
     public String getResponseFromAssistant(String userQuery) {
         var metadata = chatClient
                 .prompt()

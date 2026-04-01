@@ -4,12 +4,14 @@ import jakarta.persistence.*;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.stereotype.Indexed;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Slf4j
 @Table(name = "tickets", indexes = {
+        @Index(name = "idx_ticket_id", columnList = "ticket_id"),
         @Index(name = "idx_ticket_status", columnList = "ticket_status"),
         @Index(name = "idx_ticket_priority", columnList = "ticket_priority"),
         @Index(name = "idx_ticket_email", columnList = "email", unique = true)

@@ -8,7 +8,8 @@
         "group": "\uD83D\uDE80 Getting Started",
         "pages": [
           "Pages/index",
-          "Pages/introduction"
+          "Pages/introduction",
+          "Pages/Mitlify Integration"
         ]
       },
       {
