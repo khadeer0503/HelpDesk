@@ -1,6 +1,8 @@
 package com.SpringAI.Helpdesk.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -10,6 +12,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Slf4j
+@Getter
+@Setter
 @Table(name = "tickets", indexes = {
         @Index(name = "idx_ticket_id", columnList = "ticket_id"),
         @Index(name = "idx_ticket_status", columnList = "ticket_status"),
@@ -26,7 +30,10 @@ public class Ticket {
     private String subject;
 
     @Lob
+    @Column(length = 1000)
     private String description;
+
+    private String category;
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
